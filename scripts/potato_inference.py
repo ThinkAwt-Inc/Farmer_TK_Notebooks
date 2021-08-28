@@ -10,7 +10,7 @@ img=load_img(img,target_size=(128,128,3))
 pic=img_to_array(img)
 
 pic = np.transpose(pic)
-pic=np.expand_dims(pic,[0])
+
 plt.imshow(img)
 
 YOUR_APP_NAME = "scalable-dev"
