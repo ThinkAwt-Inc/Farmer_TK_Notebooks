@@ -13,7 +13,7 @@ from keras.preprocessing.image import img_to_array, save_img, load_img
 
 
 # Load and process image
-img = ".\testimages\tomatoHealthy.jpg"
+img = ".\testimages\tomatoBacteria.jpg"
 img_load = load_img(img, target_size=(224, 224, 3))
 img_pic = img_to_array(img_load)
 plt.imshow(img_load)
@@ -31,7 +31,6 @@ def make_prediction(instances, many=False):
         data = json.dumps({"signature_name": "serving_default", "instances": instances.tolist()})
     headers = {"content-type": "application/json"}
     json_response = requests.post(url, data=data, headers=headers)
-#     print(json_response.text)
     predictions = json.loads(json_response.text)['predictions']
     return predictions
 
