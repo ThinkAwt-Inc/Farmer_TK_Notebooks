@@ -15,7 +15,7 @@ All resulting models were served for efficient inferencing using our Scalable se
 
 Using the potato model as a sample;
 
-```
+```python
 # importing required python packages
 import requests
 import json
