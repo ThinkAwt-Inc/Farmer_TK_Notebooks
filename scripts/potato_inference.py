@@ -13,6 +13,9 @@ pic = np.transpose(pic)
 
 plt.imshow(img)
 
+# Classes in the Model
+plant_classes = {0:'Potato___Early_blight', 1:'Potato___Late_blight', 2:'Potato___healthy'}
+
 YOUR_APP_NAME = "scalable-dev"
 url = 'http://scalable-dev.herokuapp.com/v1/models/potato:predict'
 
