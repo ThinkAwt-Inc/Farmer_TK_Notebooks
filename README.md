@@ -34,7 +34,13 @@ img=load_img(img,target_size=(128,128,3))
 pic=img_to_array(img)
 pic = np.transpose(pic)
 
+# show image
 plt.imshow(img)
+
+# Classes in the Model
+plant_classes = {0:'Potato___Early_blight', 
+                1:'Potato___Late_blight', 
+                2:'Potato___healthy'}
 
 # here we connect to our heroku model server
 YOUR_APP_NAME = "scalable-dev"
@@ -53,8 +59,14 @@ def make_prediction(instances, many=False):
     return predictions
 
 
+# Make predictions
 for p in make_prediction(pic):
     print(np.argmax(p))
 ```
 
-The above code queries our served model server for classification of a test image.
+The above code queries our served model server for classification of a test image. Where an output of : 
+* **1 = Early Blight Potato**,
+* **2 = Late Blight Potato**,
+* **3 = Healthy Potato**
+
+The images used for testing the served model is saved in the **testimages** folder, And the Notebooks in the **notebooks** folder.
