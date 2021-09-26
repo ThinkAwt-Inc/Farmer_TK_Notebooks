@@ -19,6 +19,13 @@ img_pic = img_to_array(img_load)
 plt.imshow(img_load)
 
 
+# Classes in the Model
+plant_classes = {0:'Corn_(maize)_Cercospora_leaf_spot_Gray_leaf_spot', 
+                 1:'Corn_(maize)_Common_rust', 
+                 2:'Corn_(maize)_Northern_Leaf_Blight', 
+                 3:'Corn_(maize)_healthy'}
+
+
 # Heroku App
 YOUR_APP_NAME = "Scalable-dev"
 url = f'https://{YOUR_APP_NAME}.herokuapp.com/v1/models/corn:predict'
@@ -36,5 +43,15 @@ def make_prediction(instances, many=False):
     return predictions
 
 
+# for p in make_prediction(img_pic):
+#     # print(np.argmax(p))
+
 for p in make_prediction(img_pic):
-    print(np.argmax(p))
+    if np.argmax(p) == 0:
+        print("Corn_(maize)_Cercospora_leaf_spot_Gray_leaf_spot")
+    elif np.argmax(p) == 1:
+        print("Corn_(maize)_Common_rust")
+    elif np.argmax(p) == 2:
+        print("Corn_(maize)_Northern_Leaf_Blight")
+    else:
+        print("Corn_(maize)_healthy")
